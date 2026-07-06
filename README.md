@@ -61,9 +61,17 @@ Adjusted price = [Average Retail Price] * (1 + 'Price Adjustment %'[Price Adjust
 Adjusted Revenue = SUMX('Sales Data', 'Sales Data'[OrderQuantity] * [Adjusted price])
 ```
 
-## Screenshots
+![Executive Dashboard](docs/screenshots/executive-dashboard.png)
+   *Executive Dashboard — KPIs, revenue trending, order/category breakdown, top products*
 
-_Coming soon — see [`/docs/screenshots`](./docs/screenshots)._
+   ![Product Analysis](docs/screenshots/product-analysis.png)
+   *Product Analysis — target gauges, price elasticity what-if slider, field parameter metric switcher*
+
+   ![Customer Analysis](docs/screenshots/customer-analysis.png)
+   *Customer Analysis — income/occupation segmentation, drill-through customer profiles*
+
+   ![Territory Map](docs/screenshots/territory-map.png)
+   *Territory Map — geographic order distribution across sales regions*
 
 ## Tech stack
 
