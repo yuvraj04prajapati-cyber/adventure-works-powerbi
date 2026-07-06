@@ -61,16 +61,16 @@ Adjusted price = [Average Retail Price] * (1 + 'Price Adjustment %'[Price Adjust
 Adjusted Revenue = SUMX('Sales Data', 'Sales Data'[OrderQuantity] * [Adjusted price])
 ```
 
-![Executive Dashboard](docs/screenshots/executive-dashboard.png)
+![Executive Dashboard](docs/executive-dashboard.png)
    *Executive Dashboard — KPIs, revenue trending, order/category breakdown, top products*
 
-   ![Product Analysis](docs/screenshots/product-analysis.png)
+   ![Product Analysis](docs/product-analysis.png)
    *Product Analysis — target gauges, price elasticity what-if slider, field parameter metric switcher*
 
-   ![Customer Analysis](docs/screenshots/customer-analysis.png)
+   ![Customer Analysis](docs/customer-analysis.png)
    *Customer Analysis — income/occupation segmentation, drill-through customer profiles*
 
-   ![Territory Map](docs/screenshots/territory-map.png)
+   ![Territory Map](docs/territory-map.png)
    *Territory Map — geographic order distribution across sales regions*
 
 ## Tech stack
@@ -92,6 +92,5 @@ adventure-works-power-bi/
 │   └── 06-price-simulation-what-if.dax
 ├── docs/
 │   ├── star-schema.svg
-│   └── screenshots/
 └── README.md
 ```
