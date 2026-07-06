@@ -1,0 +1,25 @@
+// =========================================================
+// TARGET vs. ACTUAL (drives the gauge visuals on the
+// Product Analysis page)
+// Targets are set dynamically as prior month + 10% growth,
+// rather than a hardcoded number, so the model keeps working
+// as new months of data are added.
+// =========================================================
+
+Revenue Target =
+[Previous month revenue] * 1.1
+
+Order Target =
+[Previous month orders] * 1.1
+
+Profit Target =
+[Previous month Profit] * 1.1
+
+Revenue Target Gap =
+[Total Revenue] - [Revenue Target]
+
+Order Target Gap =
+[Total Order] - [Order Target]
+
+Profit Target Gap =
+[Total Profit] - [Profit Target]

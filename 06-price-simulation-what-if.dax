@@ -1,0 +1,24 @@
+// =========================================================
+// PRICE ELASTICITY WHAT-IF SIMULATION
+// 'Price Adjustment %' is a What-If parameter table bound to
+// a slider on the Product Analysis page. Moving the slider
+// recalculates revenue and profit in real time without
+// touching the underlying Sales Data table.
+// =========================================================
+
+Price Adjustment % Value =
+SELECTEDVALUE('Price Adjustment %'[Price Adjustment %], 0)
+
+Adjusted price =
+[Average Retail Price] * (1 + 'Price Adjustment %'[Price Adjustment % Value])
+
+Adjusted Revenue =
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity]
+    *
+    [Adjusted price]
+)
+
+Adjusted Profit =
+[Adjusted Revenue] - [Total Cost]

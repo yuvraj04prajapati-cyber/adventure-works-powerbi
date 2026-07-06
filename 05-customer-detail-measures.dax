@@ -1,0 +1,35 @@
+// =========================================================
+// CUSTOMER DETAIL (drill-through page)
+// HASONEVALUE guards return a clean placeholder instead of a
+// blended/incorrect total when multiple customers are in
+// context, e.g. before a single row is selected.
+// =========================================================
+
+Full Name (customer detail) =
+IF(
+    HASONEVALUE(
+        'Customer Lookup'[CustomerKey]
+    ),
+    MAX(
+        'Customer Lookup'[Full Name]
+    ),
+    "Multiple Customer"
+)
+
+Total Order (customer Detail) =
+IF(
+    HASONEVALUE(
+        'Customer Lookup'[CustomerKey]
+    ),
+    [Total Order],
+    "-"
+)
+
+Total Revenue (customer Detail) =
+IF(
+    HASONEVALUE(
+        'Customer Lookup'[CustomerKey]
+    ),
+    [Total Revenue],
+    "-"
+)

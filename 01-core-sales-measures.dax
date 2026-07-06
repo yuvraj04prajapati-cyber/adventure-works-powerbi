@@ -1,0 +1,92 @@
+// =========================================================
+// CORE SALES & VOLUME MEASURES
+// =========================================================
+
+Quantaty sold =
+SUM(
+    'Sales Data'[OrderQuantity]
+)
+
+Quantity Return =
+SUM(
+    'Returns Data'[ReturnQuantity]
+)
+
+Total Return =
+COUNT(
+    'Returns Data'[ReturnQuantity]
+)
+
+Total Order =
+DISTINCTCOUNT(
+    'Sales Data'[OrderNumber]
+)
+
+Unique Customer =
+DISTINCTCOUNT(
+    'Sales Data'[CustomerKey]
+)
+
+Return Rate =
+[Quantity Return] / [Quantaty sold]
+
+Average Retail Price =
+AVERAGE(
+    'Product Lookup'[ProductPrice]
+)
+
+Overall Average Price =
+CALCULATE(
+    [Average Retail Price],
+    ALL(
+        'Product Lookup'
+    )
+)
+
+Total Revenue =
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity] *
+    RELATED(
+        'Product Lookup'[ProductPrice]
+    )
+)
+
+Total Cost =
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity] *
+    RELATED(
+        'Product Lookup'[ProductCost]
+    )
+)
+
+Total Profit =
+[Total Revenue] - [Total Cost]
+
+Revenue per Customer =
+DIVIDE(
+    [Total Revenue],
+    [Unique Customer]
+)
+
+Bulk Orders =
+CALCULATE(
+    [Total Order],
+    'Sales Data'[OrderQuantity] > 1
+)
+
+Weekend Orders =
+CALCULATE(
+    [Total Order],
+    'Calendar Lookup'[Weekend] = "Weekend"
+)
+
+High Ticket Orders =
+CALCULATE(
+    [Total Order],
+    FILTER(
+        'Product Lookup',
+        'Product Lookup'[ProductPrice] > [Overall Average Price]
+    )
+)

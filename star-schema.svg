@@ -1,0 +1,65 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="900" height="560" fill="#ffffff"/>
+
+  <!-- Fact tables -->
+  <rect x="330" y="230" width="240" height="60" rx="8" fill="#1D9E75" stroke="#0F6E56" stroke-width="1.5"/>
+  <text x="450" y="255" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">Sales Data</text>
+  <text x="450" y="274" text-anchor="middle" font-size="11" fill="#E1F5EE">Fact table · 56,046 line items</text>
+
+  <rect x="330" y="330" width="240" height="60" rx="8" fill="#1D9E75" stroke="#0F6E56" stroke-width="1.5"/>
+  <text x="450" y="355" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">Returns Data</text>
+  <text x="450" y="374" text-anchor="middle" font-size="11" fill="#E1F5EE">Fact table · 1,809 returns</text>
+
+  <!-- Dimension tables -->
+  <rect x="40" y="40" width="200" height="56" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+  <text x="140" y="63" text-anchor="middle" font-size="13" font-weight="600" fill="#0C447C">Customer Lookup</text>
+  <text x="140" y="80" text-anchor="middle" font-size="10.5" fill="#185FA5">18,148 customers</text>
+
+  <rect x="40" y="240" width="200" height="56" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+  <text x="140" y="263" text-anchor="middle" font-size="13" font-weight="600" fill="#0C447C">Calendar Lookup</text>
+  <text x="140" y="280" text-anchor="middle" font-size="10.5" fill="#185FA5">912 dates, 2020-2022</text>
+
+  <rect x="40" y="440" width="200" height="56" rx="8" fill="#E6F1FB" stroke="#378ADD" stroke-width="1.2"/>
+  <text x="140" y="463" text-anchor="middle" font-size="13" font-weight="600" fill="#0C447C">Territory Lookup</text>
+  <text x="140" y="480" text-anchor="middle" font-size="10.5" fill="#185FA5">10 sales territories</text>
+
+  <rect x="40" y="140" width="200" height="56" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.2"/>
+  <text x="140" y="163" text-anchor="middle" font-size="13" font-weight="600" fill="#633806">Rolling Calendar</text>
+  <text x="140" y="180" text-anchor="middle" font-size="10.5" fill="#854F0B">Detached, powers rolling windows</text>
+
+  <rect x="660" y="240" width="200" height="56" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+  <text x="760" y="263" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Product Lookup</text>
+  <text x="760" y="280" text-anchor="middle" font-size="10.5" fill="#993C1D">293 products</text>
+
+  <rect x="660" y="140" width="200" height="56" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+  <text x="760" y="163" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Product Subcategories</text>
+  <text x="760" y="180" text-anchor="middle" font-size="10.5" fill="#993C1D">37 subcategories</text>
+
+  <rect x="660" y="40" width="200" height="56" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1.2"/>
+  <text x="760" y="63" text-anchor="middle" font-size="13" font-weight="600" fill="#712B13">Product Categories</text>
+  <text x="760" y="80" text-anchor="middle" font-size="10.5" fill="#993C1D">4 categories (Bikes, ...)</text>
+
+  <!-- Connectors: Customer -> Sales -->
+  <line x1="240" y1="68" x2="330" y2="250" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Calendar -> Sales -->
+  <line x1="240" y1="260" x2="330" y2="258" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Territory -> Sales -->
+  <line x1="240" y1="460" x2="330" y2="265" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Territory -> Returns -->
+  <line x1="240" y1="465" x2="330" y2="360" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Calendar -> Returns -->
+  <line x1="240" y1="270" x2="330" y2="350" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Rolling Calendar note (dashed, no direct join) -->
+  <line x1="240" y1="168" x2="330" y2="245" stroke="#BA7517" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <!-- Product -> Sales -->
+  <line x1="660" y1="262" x2="570" y2="258" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Product -> Returns -->
+  <line x1="660" y1="272" x2="570" y2="355" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Subcategory -> Product -->
+  <line x1="760" y1="196" x2="760" y2="240" stroke="#888780" stroke-width="1" fill="none"/>
+  <!-- Category -> Subcategory -->
+  <line x1="760" y1="96" x2="760" y2="140" stroke="#888780" stroke-width="1" fill="none"/>
+
+  <text x="450" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="#2C2C2A">Adventure Works star schema — 2 fact tables, 7 supporting dimension/date tables</text>
+  <text x="450" y="530" text-anchor="middle" font-size="11" fill="#5F5E5A">All relationships are single-direction filtering (dimension → fact), except the detached Rolling Calendar used for independent rolling-window measures.</text>
+</svg>

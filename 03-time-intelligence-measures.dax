@@ -1,0 +1,80 @@
+// =========================================================
+// TIME INTELLIGENCE
+// Powers the Executive Dashboard trend lines and rolling
+// windows using a dedicated Rolling Calendar table so these
+// can move independently of the main Calendar Lookup filter
+// =========================================================
+
+YTD =
+CALCULATE(
+    [Total Revenue],
+    DATESYTD(
+        'Calendar Lookup'[Date]
+    )
+)
+
+10 Day rolling Revenue =
+CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD(
+        'Calendar Lookup'[Date],
+        MAX(
+            'Calendar Lookup'[Date]
+        ),
+        -10,
+        DAY
+    )
+)
+
+90 day rolling Profit =
+CALCULATE(
+    [Total Profit],
+    DATESINPERIOD(
+        'Calendar Lookup'[Date],
+        MAX(
+            'Calendar Lookup'[Date]
+        ),
+        -90,
+        DAY
+    )
+)
+
+Previous month revenue =
+CALCULATE(
+    [Total Revenue],
+    DATEADD(
+        'Calendar Lookup'[Date],
+        -1,
+        MONTH
+    )
+)
+
+Previous month returns =
+CALCULATE(
+    [Total Return],
+    DATEADD(
+        'Rolling Calander'[Date],
+        -1,
+        MONTH
+    )
+)
+
+Previous month orders =
+CALCULATE(
+    [Total Order],
+    DATEADD(
+        'Rolling Calander'[Date],
+        -1,
+        MONTH
+    )
+)
+
+Previous month Profit =
+CALCULATE(
+    [Total Profit],
+    DATEADD(
+        'Rolling Calander'[Date],
+        -1,
+        MONTH
+    )
+)

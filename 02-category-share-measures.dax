@@ -1,0 +1,51 @@
+// =========================================================
+// CATEGORY SHARE & BIKE-SPECIFIC MEASURES
+// Used to isolate the Bikes category against total portfolio
+// performance (bikes are AW's flagship, highest-margin line)
+// =========================================================
+
+All Orders =
+CALCULATE(
+    [Total Order],
+    ALL(
+        'Sales Data'
+    )
+)
+
+% of all orders =
+DIVIDE(
+    [Total Order],
+    [All Orders]
+)
+
+All Returns =
+CALCULATE(
+    [Total Return],
+    ALL(
+        'Returns Data'
+    )
+)
+
+% of All Return =
+DIVIDE(
+    [Total Return],
+    [All Returns]
+)
+
+Bike returns =
+CALCULATE(
+    [Total Return],
+    'Product Categories Lookup'[CategoryName] = "Bikes"
+)
+
+Bike sales =
+CALCULATE(
+    [Quantaty sold],
+    'Product Categories Lookup'[CategoryName] = "Bikes"
+)
+
+Bike Return Rate =
+CALCULATE(
+    [Return Rate],
+    'Product Categories Lookup'[CategoryName] = "Bikes"
+)
